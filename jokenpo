@@ -1,0 +1,27 @@
+import random
+
+pontos_usuario = 0
+pontos_computador = 0
+
+opcao = ['r', 't', 'p']
+
+while True:
+    usuario_choice = input('Escolha R(Pedra)/T(Tesoura)/P(papel) ou Q para sair.').lower()
+
+    if usuario_choice == 'q':
+        break
+
+    computador_choice = random.choice(opcao)
+    print('Sua pontuação:', pontos_usuario)
+    print('A pontuação do computador:', pontos_computador)
+
+    if usuario_choice == computador_choice:
+        print('Empate!')
+
+    elif (usuario_choice == 'r' and computador_choice == 't') or (usuario_choice == 't' and computador_choice == 'p') or (usuario_choice == 'p' and computador_choice == 'r'):
+        print('Você ganhou!')
+        pontos_usuario += 1
+
+    else:
+        print('O computador ganhou!')
+        pontos_computador += 1
