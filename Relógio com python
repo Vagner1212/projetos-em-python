@@ -1,0 +1,44 @@
+from tkinter import *
+from datetime import datetime
+
+# Cores usadas
+cor1 = "#3d3d3d"  # preta
+cor2 = "#fafcff"  # branca
+cor3 = "#21c25c"  # verde
+cor4 = "#eb463b"  # vermelha
+cor5 = "#dedcdc"  # cinza
+cor6 = "#3080f0"  # azul
+
+fundo = cor1
+cor = cor2
+
+janela = Tk()
+janela.title("Relógio")
+janela.geometry("440x180")
+janela.resizable(width=False, height=False)
+janela.config(bg=cor1)
+
+texto_hora = Label(janela, font=("Arial", 50), fg=cor4, bg=cor1)
+texto_hora.pack(pady=50)
+
+
+def atualizar_hora():
+    tempo = datetime.now()
+    hora = tempo.strftime("%H:%M:%S")
+    texto_hora.config(text=hora)
+    texto_hora.after(1000, atualizar_hora)
+
+def dia_mes_ano():
+    data = datetime()
+    ano = tempo.strftime("13/03/1998")
+
+
+def maximizar_janela():
+    janela.state('zoomed')
+
+botao_maximizar = Button(janela, text="Maximizar janela", command=maximizar_janela)
+botao_maximizar.pack(pady=20)
+
+atualizar_hora()
+
+janela.mainloop()
