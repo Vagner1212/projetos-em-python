@@ -1,0 +1,11 @@
+from playwright.sync_api import sync_playwright
+import time
+
+with sync_playwright() as p:
+    navegador = p.chromium.launch(headless=False)
+    pagina = navegador.new_page()
+    pagina.goto("https://pages.hashtagtreinamentos.com/arquivo-python-11iv_yRFoMOLV-eDC71nbx2pmoigUfesc?origemurl=hashtag_yt_org_planilhapyt_1NNMzL4W8ws")
+    pagina.locator('xpath=//*[@id="section-17249528"]/section/div[2]/div/form/div[1]/div/div/div/input').click()
+    pagina.fill('xpath=//*[@id="section-17249528"]/section/div[2]/div/form/div[1]/div/div/div/input', "Vagner1212s@yahoo.com")
+    pagina.fill('xpath=//*[@id="section-17249528"]/section/div[2]/div/form/button').click()
+    time.sleep(10)
